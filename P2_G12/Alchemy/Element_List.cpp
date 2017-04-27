@@ -41,6 +41,7 @@ Elements::Elements()
 				counter++;
 			}
 		}
+		elementMap.insert({ {firstKey,secondKey},element });
 	}
 	ficherElements.close(); // Tanquem el fitxer dels elements.
 }
