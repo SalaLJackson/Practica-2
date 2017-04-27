@@ -3,8 +3,6 @@
 #include <iostream>
 #include <string>
 
-const int MAX_CHAR = 250;
-
 Elements::Elements()
 {
 	std::ifstream ficherElements("elements.dat"); // Obrim el fitxer d'elements per a inciar la lectura.

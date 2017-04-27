@@ -10,5 +10,4 @@
 void main()
 {
 	Elements llistat;
-	std::unordered_map<std::pair<int,int>, std::string> elementMap;
 }
