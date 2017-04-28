@@ -8,6 +8,7 @@
 class Elements
 {
 	private:
+		const int NUM_COMBINATIONS=390;
 		// Creem un struct i sobrecarguem els operadors per a aixó poder utilizar dos strings com a key.
 		struct elements
 		{
