@@ -21,9 +21,15 @@
     <ClCompile Include="Element_List.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Player Manager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Element_List.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Player Manager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
