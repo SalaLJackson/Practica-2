@@ -42,6 +42,9 @@ Elements::Elements()
 			}
 		}
 		elementMap.insert({ {firstKey,secondKey},element });
+		element.erase();
+		firstKey.erase();
+		secondKey.erase();
 	}
 	ficherElements.close(); // Tanquem el fitxer dels elements.
 }
