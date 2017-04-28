@@ -28,3 +28,8 @@ void Player::printInterficie()
 	"3:" << dispElements[3] << std::endl <<
 	"4:" << dispElements[4] << std::endl;
 }
+
+int Player::getScore()
+{
+	return score;
+}

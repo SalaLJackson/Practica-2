@@ -58,3 +58,13 @@ Elements::Elements()
 		system("pause");
 	}
 }
+
+int Elements::getNumBasics()
+{
+	return NUM_BASICS;
+}
+
+int Elements::getNumComb()
+{
+	return NUM_COMBINATIONS;
+}
