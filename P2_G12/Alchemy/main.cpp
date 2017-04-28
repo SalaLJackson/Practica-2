@@ -11,6 +11,6 @@
 int main()
 {
 	Elements llistat;
-	Player jugador;
+	Player jugador(llistat);
 	return 0;
 }
