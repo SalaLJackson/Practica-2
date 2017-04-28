@@ -3,7 +3,7 @@
 #include <vector>
 #include <string>
 
-Player::Player(Elements elements) :score{ 0 }, dispElements({ "ZERO","Air", "Earth", "Fire", "Water" }), myElements{ elements } // Inicialitzem el vector amb els elements bàsics, la puntuació i la variable de classe elements de Player.
+Player::Player(Elements &elements) :score{ 0 }, dispElements({ "ZERO","Air", "Earth", "Fire", "Water" }), myElements{ elements } // Inicialitzem el vector amb els elements bàsics, la puntuació i la variable de classe elements de Player.
 {
 	printInterficie();
 }

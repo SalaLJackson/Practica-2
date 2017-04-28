@@ -1,10 +1,12 @@
 #include <fstream>
+#include <cstdlib>
 #include <iostream>
 #include <unordered_map>
 #include <algorithm>
 #include <cstdlib>
 #include <string>
 #include <vector>
+#include <Windows.h>
 #include "Element_List.h"
 #include "Player Manager.h"
 

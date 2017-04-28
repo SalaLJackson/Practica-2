@@ -11,9 +11,6 @@ private:
 	// Variable que guarda la puntuació del jugador.
 	int score;
 
-	// Vector que guardarà els elements disponibles pel jugador.
-	std::vector<std::string> dispElements;
-
 	// Variable de la classe Elements.
 	Elements myElements;
 
@@ -23,7 +20,10 @@ private:
 public:
 
 	// Constructor de la classe player.
-	Player(Elements Elements);
+	Player(Elements &Elements);
+
+	// Vector que guardarà els elements disponibles pel jugador.
+	std::vector<std::string> dispElements;
 
 	// Funció que retorna la puntuació del jugador.
 	int getScore();
