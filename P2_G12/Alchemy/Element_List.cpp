@@ -68,3 +68,8 @@ int Elements::getNumComb()
 {
 	return NUM_COMBINATIONS;
 }
+
+std::unordered_map<Elements::elements, std::string, Elements::elements> Elements::getElementMap()
+{
+	return elementMap;
+}

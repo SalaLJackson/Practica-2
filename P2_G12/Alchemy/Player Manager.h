@@ -2,17 +2,24 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <algorithm>
 #include "Element_List.h"
 
 class Player
 {
 private:
 
+	// Variable que guarda l'índex del primer element del vector del jugador
+	const int FIRST_ELEMENT=1;
+
 	// Variable que guarda la puntuació del jugador.
 	int score;
 
 	// Variable de la classe Elements.
 	Elements myElements;
+
+	// Vector que guardarà els elements ja descoberts pel jugador.
+	std::vector<std::string> discoveredElements;
 
 public:
 
@@ -36,4 +43,8 @@ public:
 
 	//Funció que s'encarrega d'afegir l'element que el jugador seleccioni a través d'un int.
 	void addElement(int numberElement);
+
+	// Funció que s'encarrega d'afegir a la llista l'element creat amb la combinació dels altres dos i
+	// després procedeix a eliminar-los.
+	void combination(int n1, int n2);
 };

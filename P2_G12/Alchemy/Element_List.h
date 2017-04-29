@@ -49,4 +49,7 @@ class Elements
 
 		// Retorna el nombre d'elements bàsics.
 		int getNumBasics();
+
+		// Retorna l'unordered map.
+		std::unordered_map<elements, std::string, elements> getElementMap();
 };
