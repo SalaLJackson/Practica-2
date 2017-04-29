@@ -64,14 +64,8 @@ void Player::addBasics()
 
 void Player::addElement( int numberElement)
 {
-	int elementsInVector=0;
 
-	for (int i = 0; i <= dispElements.size() - 1; i++)
-	{
-		elementsInVector++;
-	}
-
-	if ( numberElement <=elementsInVector)
+	if ( numberElement <=dispElements.size())
 	{
 		dispElements.push_back(dispElements[numberElement]);
 	}

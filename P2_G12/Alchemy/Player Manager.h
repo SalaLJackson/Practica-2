@@ -31,8 +31,9 @@ public:
 	// Funció que s'encarrega de comprovar si l'input del jugador és un número o bé és una paraula.
 	bool isNumber(std::string);
 
-
+	//Funció que s'encarrega d'afegir els elements 4 elements bàsics segons l'input que introdueixi el jugador (string).
 	void addBasics();
 
+	//Funció que s'encarrega d'afegir l'element que el jugador seleccioni a través d'un int.
 	void addElement(int numberElement);
 };
