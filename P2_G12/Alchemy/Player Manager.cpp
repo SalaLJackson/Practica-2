@@ -34,16 +34,16 @@ int Player::getScore()
 	return score;
 }
 
-bool Player::isWord(std::string input)
+bool Player::isNumber(std::string input)
 {
-	int letterCounter = 0;
+	int numCounter = 0;
 	for(int i=0;i<=input.size();i++)
 	{
 		// Comprovem si cada un dels caràcters de l'input són una lletra.
-		if((input[i]>='A' && input[i]<='Z') || (input[i]>='a' && input[i]<='z'))
+		if((input[i]<='A' && input[i]>='Z') || (input[i]<='a' && input[i]>='z'))
 		{
-			letterCounter++;
+			numCounter++;
 		}
 	}
-	return letterCounter = input.size();
+	return numCounter == input.size();
 }

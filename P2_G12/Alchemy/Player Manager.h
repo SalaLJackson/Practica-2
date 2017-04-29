@@ -29,5 +29,5 @@ public:
 	void printInterficie();
 
 	// Funció que s'encarrega de comprovar si l'input del jugador és un número o bé és una paraula.
-	bool isWord(std::string);
+	bool isNumber(std::string);
 };
