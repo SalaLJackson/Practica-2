@@ -40,10 +40,10 @@ int Player::getScore()
 bool Player::isNumber(std::string input)
 {
 	int numCounter = 0;
-	for(int i=0;i<=input.size();i++)
+	for(int i=0;i<input.size();i++)
 	{
 		// Comprovem si cada un dels caràcters de l'input són una lletra.
-		if((input[i]<='A' && input[i]>='Z') || (input[i]<='a' && input[i]>='z'))
+		if((input[i]>='0' && input[i]<='9'))
 		{
 			numCounter++;
 		}
@@ -71,21 +71,30 @@ void Player::addElement(int numberElement)
 void Player::combination(int n1,int n2)
 {
 	// Trobem els dos elements que pertanyen als dos nombres que el jugador ha introduït.
-	std::string firstElement=dispElements[n1];
-	std::string secondElement=dispElements[n2];
-	// Eliminem els dos elements que hem utilitzat per la combinació de la llista.
-	dispElements.erase(dispElements.begin()+n1);
-	dispElements.erase(dispElements.begin()+n2);
-	// En la posició del primer element utilitzat en la combinació, i fiquem l'element resultant d'aquesta.
-	dispElements[n1] = myElements.getElementMap()[{firstElement, secondElement}];
-	// Ara comprovem si ja haviem fet aquesta combinació en una altre ocasió i
-	// si no es així el bucle s'activa.
-	if(!std::binary_search(discoveredElements.begin(),discoveredElements.end(),dispElements[n1]))
+	std::string firstElement = dispElements[n1];
+	std::string secondElement = dispElements[n2];
+	// Si la combinació existeix...
+	if (myElements.isCombination(dispElements[n1],dispElements[n2]))
 	{
-		// Afegim el nou element a la llista d'elements ja descoberts.
-		discoveredElements.push_back(dispElements[n1]);
-		// Per últim, com que hem descobert una nova combinació, augmentem la puntuació.
-		score++;
+		// Eliminem els dos elements que hem utilitzat per la combinació de la llista.
+		dispElements.erase(dispElements.begin() + n1);
+		dispElements.erase(dispElements.begin() + n2);
+		// Fiquem l'element resultat de la combinació al final de la llista.
+		dispElements.push_back(myElements.getElementMap()[{firstElement, secondElement}]);
+		// Ara comprovem si ja haviem fet aquesta combinació en una altre ocasió i
+		// si no es així el bucle s'activa.
+		if (!std::binary_search(discoveredElements.begin(), discoveredElements.end(), dispElements[n1]))
+		{
+			// Afegim el nou element a la llista d'elements ja descoberts.
+			discoveredElements.push_back(dispElements[n1]);
+			// Per últim, com que hem descobert una nova combinació, augmentem la puntuació.
+			score++;
+		}
+	}
+	// En cas contrari...
+	else
+	{
+		std::cout << "The combination of these two elements doesn't exist." << std::endl;
 	}
 }
 

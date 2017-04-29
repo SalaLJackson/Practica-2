@@ -2,6 +2,7 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include <algorithm>
 
 Elements::Elements()
 {
@@ -54,7 +55,7 @@ Elements::Elements()
 	//el programa s'aturarà amb system("pause").
 	else if (!ficherElements.is_open() || elementMap.size()!=NUM_COMBINATIONS)
 	{
-		std::cout << "Combinacions no cargades correctament";
+		std::cout << "ERROR";
 		system("pause");
 	}
 }
@@ -72,4 +73,16 @@ int Elements::getNumComb()
 std::unordered_map<Elements::elements, std::string, Elements::elements> Elements::getElementMap()
 {
 	return elementMap;
+}
+
+bool Elements::isCombination(std::string s1,std::string s2)
+{
+	for(auto it=elementMap.begin();it!=elementMap.end();it++)
+	{
+		if (it->second == elementMap[{s1,s2}])
+		{
+			return true;
+		}
+	}
+	return false;
 }

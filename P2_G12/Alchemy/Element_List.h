@@ -2,6 +2,7 @@
 #include <unordered_map>
 #include <string>
 #include <iostream>
+#include <algorithm>
 
 // Classe que s'ocuparà d'emmagatzemar i controlar el llistat d'elements i combinacions.
 
@@ -52,4 +53,7 @@ class Elements
 
 		// Retorna l'unordered map.
 		std::unordered_map<elements, std::string, elements> getElementMap();
+
+		// Retorna si els elements poden ser combinats.
+		bool isCombination(std::string,std::string);
 };
