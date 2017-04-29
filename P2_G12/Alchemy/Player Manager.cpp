@@ -27,7 +27,7 @@ void Player::printInterficie()
 	"- Enter the word 'clean' to delete all the instances of repeated elements." << std::endl <<
 	"- Enter the word 'help' to show this tutorial." << std::endl <<
 	"Your current score:" << score << std::endl << std::endl <<
-	"Your have these elements:" << std::endl <<
+	"Your have these elements:" << std::endl;
 
 }
 
