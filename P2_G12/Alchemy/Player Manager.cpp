@@ -2,7 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <algorithm> //XEPO : Per la funcio add;
+
 
 Player::Player(Elements &elements) :score{ 0 }, dispElements({ "ZERO","Air", "Earth", "Fire", "Water" }), myElements{ elements } // Inicialitzem el vector amb els elements bàsics, la puntuació i la variable de classe elements de Player.
 {
@@ -29,6 +29,8 @@ void Player::printInterficie()
 	"- Enter the word 'help' to show this tutorial." << std::endl <<
 	"Your current score: " << score << std::endl << std::endl <<
 	"Your have these elements:" << std::endl;
+
+	
 }
 
 int Player::getScore()
@@ -69,9 +71,9 @@ void Player::addElement( int numberElement)
 		elementsInVector++;
 	}
 
-	if ( numberElement <=elementsInVector);
+	if ( numberElement <=elementsInVector)
 	{
-
+		dispElements.push_back(dispElements[numberElement]);
 	}
 }
 
