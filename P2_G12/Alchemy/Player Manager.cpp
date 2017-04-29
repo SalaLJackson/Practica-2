@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <algorithm> //XEPO : Per la funcio add;
 
 Player::Player(Elements &elements) :score{ 0 }, dispElements({ "ZERO","Air", "Earth", "Fire", "Water" }), myElements{ elements } // Inicialitzem el vector amb els elements bàsics, la puntuació i la variable de classe elements de Player.
 {
@@ -48,4 +49,31 @@ bool Player::isNumber(std::string input)
 	}
 	return numCounter == input.size();
 }
+
+void Player::addBasics()
+{
+		dispElements.push_back("Air");
+		dispElements.push_back("Earth");
+		dispElements.push_back("Fire");
+		dispElements.push_back("Water");
+}
+
+
+
+void Player::addElement( int numberElement)
+{
+	int elementsInVector=0;
+
+	for (int i = 0; i <= dispElements.size() - 1; i++)
+	{
+		elementsInVector++;
+	}
+
+	if ( numberElement <=elementsInVector);
+	{
+
+	}
+}
+
+
 

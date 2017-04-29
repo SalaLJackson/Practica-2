@@ -30,4 +30,9 @@ public:
 
 	// Funció que s'encarrega de comprovar si l'input del jugador és un número o bé és una paraula.
 	bool isNumber(std::string);
+
+
+	void addBasics();
+
+	void addElement(int numberElement);
 };

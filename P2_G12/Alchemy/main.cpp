@@ -14,6 +14,7 @@ int main()
 	Elements llistat;
 	Player jugador(llistat);
 	std::string input;
+	
 	int number;
 	// El joc continuarà fins el moment en el que el jugador obtingui la màzima puntuació, ho sigui, que descubreixi tots els elements.
 	while(jugador.getScore()!=llistat.getNumComb()-llistat.getNumBasics())
