@@ -14,9 +14,6 @@ private:
 	// Variable de la classe Elements.
 	Elements myElements;
 
-	// Funció que imprimeix l'interfície base.
-	void printInterficie();
-
 public:
 
 	// Constructor de la classe player.
@@ -27,4 +24,10 @@ public:
 
 	// Funció que retorna la puntuació del jugador.
 	int getScore();
+
+	// Funció que imprimeix l'interfície base.
+	void printInterficie();
+
+	// Funció que s'encarrega de comprovar si l'input del jugador és un número o bé és una paraula.
+	bool isWord(std::string);
 };

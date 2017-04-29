@@ -14,10 +14,23 @@ int main()
 {
 	Elements llistat;
 	Player jugador(llistat);
+	std::string input1;
 	// El joc continuarà fins el moment en el que el jugador obtingui la màzima puntuació, ho sigui, que descubreixi tots els elements.
-	while(jugador.getScore()!=llistat.getNumComb-llistat.getNumBasics)
+	while(jugador.getScore()!=llistat.getNumComb()-llistat.getNumBasics())
 	{
-	
+		// Demanem al jugador que introdueixi les dades.
+		std::cin >> input1;
+		// Comprovem que ha introduït el jugador:
+		// En el cas de que sigui una paraula...
+		if(jugador.isWord(input1))
+		{
+		
+		}
+		// En el cas de que sigui un nombre...
+		else
+		{
+		
+		}
 	}
 	return 0;
 }
