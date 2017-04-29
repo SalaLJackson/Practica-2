@@ -6,6 +6,11 @@
 Player::Player(Elements &elements) :score{ 0 }, dispElements({ "ZERO","Air", "Earth", "Fire", "Water" }), myElements{ elements } // Inicialitzem el vector amb els elements bàsics, la puntuació i la variable de classe elements de Player.
 {
 	printInterficie();
+	std::cout << std::endl <<
+    "1:" << dispElements[1] << std::endl <<
+	"2:" << dispElements[2] << std::endl <<
+	"3:" << dispElements[3] << std::endl <<
+	"4:" << dispElements[4] << std::endl;
 }
 
 void Player::printInterficie()
@@ -23,10 +28,7 @@ void Player::printInterficie()
 	"- Enter the word 'help' to show this tutorial." << std::endl <<
 	"Your current score:" << score << std::endl << std::endl <<
 	"Your have these elements:" << std::endl <<
-	"1:" << dispElements[1] << std::endl <<
-	"2:" << dispElements[2] << std::endl <<
-	"3:" << dispElements[3] << std::endl <<
-	"4:" << dispElements[4] << std::endl;
+
 }
 
 int Player::getScore()
@@ -47,3 +49,4 @@ bool Player::isNumber(std::string input)
 	}
 	return numCounter == input.size();
 }
+
