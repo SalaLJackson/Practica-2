@@ -58,6 +58,9 @@ void Player::addBasics()
 	dispElements.push_back("Earth");
 	dispElements.push_back("Fire");
 	dispElements.push_back("Water");
+	system("cls");
+	printScore();
+	printElements();
 }
 
 void Player::addElement(int numberElement)
@@ -66,10 +69,15 @@ void Player::addElement(int numberElement)
 	{
 		dispElements.push_back(dispElements[numberElement]);
 	}
+	system("cls");
+	printScore();
+	printElements();
 }
 
 void Player::combination(int n1,int n2)
 {
+	// Netejem la consola.
+	system("cls");
 	// Trobem els dos elements que pertanyen als dos nombres que el jugador ha introduït.
 	std::string firstElement = dispElements[n1];
 	std::string secondElement = dispElements[n2];
@@ -77,14 +85,23 @@ void Player::combination(int n1,int n2)
 	if (myElements.isCombination(dispElements[n1],dispElements[n2]))
 	{
 		// Eliminem els dos elements que hem utilitzat per la combinació de la llista.
-		dispElements.erase(dispElements.begin() + n1);
-		dispElements.erase(dispElements.begin() + n2);
+		if (n2>n1)
+		{
+			dispElements.erase(dispElements.begin() + n2);
+			dispElements.erase(dispElements.begin() + n1);
+		}
+		else
+		{
+			dispElements.erase(dispElements.begin() + n1);
+			dispElements.erase(dispElements.begin() + n2);
+		}
 		// Fiquem l'element resultat de la combinació al final de la llista.
 		dispElements.push_back(myElements.getElementMap()[{firstElement, secondElement}]);
 		// Ara comprovem si ja haviem fet aquesta combinació en una altre ocasió i
 		// si no es així el bucle s'activa.
-		if (!std::binary_search(discoveredElements.begin(), discoveredElements.end(), dispElements[n1]))
+		if (!std::binary_search(discoveredElements.begin(), discoveredElements.end(), dispElements[dispElements.size()-FIRST_ELEMENT]))
 		{
+			std::cout << "You discovered " << dispElements[dispElements.size() - FIRST_ELEMENT] << std::endl << std::endl;
 			// Afegim el nou element a la llista d'elements ja descoberts.
 			discoveredElements.push_back(dispElements[n1]);
 			// Per últim, com que hem descobert una nova combinació, augmentem la puntuació.
@@ -96,7 +113,47 @@ void Player::combination(int n1,int n2)
 	{
 		std::cout << "The combination of these two elements doesn't exist." << std::endl;
 	}
+	printScore();
+	printElements();
 }
 
+void Player::printScore()
+{
+	std::cout << "Your score is: " << score << std::endl;
+}
+
+void Player::printElements()
+{
+	for(int i=FIRST_ELEMENT;i<dispElements.size();i++)
+	{
+		std::cout << i << ": " << dispElements[i] << std::endl;
+	}
+}
+
+void Player::sortElements()
+{
+	sort(dispElements.begin()+FIRST_ELEMENT, dispElements.end());
+	system("cls");
+	printScore();
+	printElements();
+}
+
+void Player::cleanElements()
+{
+	for(int i=FIRST_ELEMENT;i<=dispElements.size()-FIRST_ELEMENT;i++)
+	{
+		for(int j=FIRST_ELEMENT;j<=dispElements.size()-FIRST_ELEMENT;j++)
+		{
+			if(i!=j && dispElements[i]==dispElements[j])
+			{
+				dispElements.erase(dispElements.begin()+i);
+				j--;
+			}
+		}
+	}
+	system("cls");
+	printScore();
+	printElements();
+}
 
 

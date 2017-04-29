@@ -47,4 +47,16 @@ public:
 	// Funció que s'encarrega d'afegir a la llista l'element creat amb la combinació dels altres dos i
 	// després procedeix a eliminar-los.
 	void combination(int n1, int n2);
+
+	// Funció que mostra la puntuació per consola.
+	void printScore();
+
+	// Funció que mostra la llista d'elements per pantalla.
+	void printElements();
+
+	// Funció que ordena la llista d'elements alfabeticament.
+	void sortElements();
+
+	// Funció que elimina els elements repetits de la llista.
+	void cleanElements();
 };
