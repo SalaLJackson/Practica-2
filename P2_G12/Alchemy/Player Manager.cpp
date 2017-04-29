@@ -28,7 +28,6 @@ void Player::printInterficie()
 	"- Enter the word 'help' to show this tutorial." << std::endl <<
 	"Your current score:" << score << std::endl << std::endl <<
 	"Your have these elements:" << std::endl;
-
 }
 
 int Player::getScore()
