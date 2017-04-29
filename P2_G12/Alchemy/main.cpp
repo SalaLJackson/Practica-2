@@ -21,12 +21,12 @@ int main()
 		// Demanem al jugador que introdueixi les dades.
 		std::cin >> input1;
 		// Comprovem que ha introduït el jugador:
-		// En el cas de que sigui una paraula...
-		if(jugador.isWord(input1))
+		// En el cas de que sigui un nombre...
+		if(jugador.isNumber(input1))
 		{
 		
 		}
-		// En el cas de que sigui un nombre...
+		// En el cas de que sigui una paraula...
 		else
 		{
 		
