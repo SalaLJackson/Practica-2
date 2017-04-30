@@ -81,6 +81,7 @@ void Player::combination(int n1,int n2)
 	// Trobem els dos elements que pertanyen als dos nombres que el jugador ha introduït.
 	std::string firstElement = dispElements[n1];
 	std::string secondElement = dispElements[n2];
+	bool wasFirst;
 	// Si la combinació existeix...
 	if (myElements.isCombination(dispElements[n1],dispElements[n2]))
 	{
@@ -89,11 +90,13 @@ void Player::combination(int n1,int n2)
 		{
 			dispElements.erase(dispElements.begin() + n2);
 			dispElements.erase(dispElements.begin() + n1);
+			wasFirst = true;
 		}
 		else
 		{
 			dispElements.erase(dispElements.begin() + n1);
 			dispElements.erase(dispElements.begin() + n2);
+			wasFirst = false;
 		}
 		// Fiquem l'element resultat de la combinació al final de la llista.
 		dispElements.push_back(myElements.getElementMap()[{firstElement, secondElement}]);
@@ -103,7 +106,14 @@ void Player::combination(int n1,int n2)
 		{
 			std::cout << "You discovered " << dispElements[dispElements.size() - FIRST_ELEMENT] << std::endl << std::endl;
 			// Afegim el nou element a la llista d'elements ja descoberts.
-			discoveredElements.push_back(dispElements[n1]);
+			if(wasFirst)
+			{
+				discoveredElements.push_back(dispElements[n1]);
+			}
+			else
+			{
+				discoveredElements.push_back(dispElements[n2]);
+			}
 			// Per últim, com que hem descobert una nova combinació, augmentem la puntuació.
 			score++;
 		}

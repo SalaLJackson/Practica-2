@@ -60,18 +60,22 @@ int main()
 			{
 				jugador.cleanElements();
 			}
-			else
+			else if(input1=="add")
 			{
 				std::cin >> input2;
-				if (input1 == "add" && input2 == "basics")
+				if (input2 == "basics")
 				{
 					jugador.addBasics();
 				}
-				if(input1== "add" && jugador.isNumber(input2))
+				if(jugador.isNumber(input2))
 				{
 					number2 = atoi(input2.c_str());
 					jugador.addElement(number2);
 				}
+			}
+			else
+			{
+				std::cout << "This command doesn't exist." << std::endl;
 			}
 		}
 	}

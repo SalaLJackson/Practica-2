@@ -45,6 +45,7 @@ Elements::Elements()
 				}
 			}
 			elementMap.insert({ {firstKey,secondKey},element });
+			elementMap.insert({ {secondKey,firstKey},element });
 			element.erase();
 			firstKey.erase();
 			secondKey.erase();
@@ -79,7 +80,7 @@ bool Elements::isCombination(std::string s1,std::string s2)
 {
 	for(auto it=elementMap.begin();it!=elementMap.end();it++)
 	{
-		if (it->second == elementMap[{s1,s2}])
+		if (it->first.k1 == s1 && it->first.k2==s2)
 		{
 			return true;
 		}

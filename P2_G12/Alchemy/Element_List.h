@@ -11,7 +11,7 @@ class Elements
 	private:
 
 		// Nombre total de combinacions.
-		const int NUM_COMBINATIONS = 390;
+		const int NUM_COMBINATIONS = 761;
 
 		// Nombre d'elements bàsics.
 		const int NUM_BASICS = 4;
