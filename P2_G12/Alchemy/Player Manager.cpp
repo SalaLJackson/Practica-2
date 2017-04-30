@@ -88,30 +88,21 @@ void Player::combination(int n1,int n2)
 		{
 			dispElements.erase(dispElements.begin() + n2);
 			dispElements.erase(dispElements.begin() + n1);
-			wasFirst = true;
 		}
 		else
 		{
 			dispElements.erase(dispElements.begin() + n1);
 			dispElements.erase(dispElements.begin() + n2);
-			wasFirst = false;
 		}
 		// Fiquem l'element resultat de la combinació al final de la llista.
 		dispElements.push_back(myElements.getElementMap()[{firstElement, secondElement}]);
 		// Ara comprovem si ja haviem fet aquesta combinació en una altre ocasió i
 		// si no es així el bucle s'activa.
-		if (!std::binary_search(discoveredElements.begin(), discoveredElements.end(), dispElements[dispElements.size()-FIRST_ELEMENT]))
+		if (!discoveredElement(dispElements[dispElements.size()-FIRST_ELEMENT]))
 		{
 			std::cout << "You discovered " << dispElements[dispElements.size() - FIRST_ELEMENT] << std::endl << std::endl;
 			// Afegim el nou element a la llista d'elements ja descoberts.
-			if(wasFirst)
-			{
-				discoveredElements.push_back(dispElements[n1]);
-			}
-			else
-			{
-				discoveredElements.push_back(dispElements[n2]);
-			}
+			discoveredElements.push_back(dispElements[dispElements.size()-FIRST_ELEMENT]);
 			// Per últim, com que hem descobert una nova combinació, augmentem la puntuació.
 			score++;
 		}
@@ -178,6 +169,18 @@ void Player::deleteElement(int inp)
 	system("cls");
 	printScore();
 	printElements();
+}
+
+bool Player::discoveredElement(std::string inp)
+{
+	for(int i=FIRST_ELEMENT;i<=discoveredElements.size()-FIRST_ELEMENT;i++)
+	{
+		if(discoveredElements[i]==inp)
+		{
+			return true;
+		}
+	}
+	return false;
 }
 
 

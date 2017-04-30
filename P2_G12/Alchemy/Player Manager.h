@@ -65,4 +65,7 @@ public:
 
 	// Funció que elimina un element.
 	void deleteElement(int n1);
+
+	// Funció que retorna si l'element ja ha estat descobert.
+	bool discoveredElement(std::string s);
 };
