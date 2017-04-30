@@ -48,6 +48,13 @@ int main()
 					jugador.combination(number1, number2);
 				}
 			}
+			else
+			{
+				std::cout << "Sorry, but that isn't an element." << std::endl;
+				system("cls");
+				jugador.printScore();
+				jugador.printElements();
+			}
 		}
 		// En el cas de que sigui una paraula...
 		else if(!jugador.isNumber(input1))
@@ -60,6 +67,28 @@ int main()
 			{
 				jugador.cleanElements();
 			}
+			else if(input1=="help")
+			{
+				jugador.printInterficie();
+			}
+			else if(input1=="info")
+			{
+				std::cin >> input2;
+				if(jugador.isNumber(input2) && atoi(input2.c_str())<jugador.dispElements.size() && atoi(input2.c_str()) != ZERO)
+				{
+					number2 = atoi(input2.c_str());
+					jugador.helpElements(number2);
+				}
+			}
+			else if(input1=="delete")
+			{
+				std::cin >> input2;
+				if(jugador.isNumber(input2) && atoi(input2.c_str())<jugador.dispElements.size() && atoi(input2.c_str()) != ZERO)
+				{
+					number2 = atoi(input2.c_str());
+					jugador.deleteElement(number2);
+				}
+			}
 			else if(input1=="add")
 			{
 				std::cin >> input2;
@@ -67,7 +96,7 @@ int main()
 				{
 					jugador.addBasics();
 				}
-				if(jugador.isNumber(input2))
+				if(jugador.isNumber(input2) && atoi(input2.c_str())<jugador.dispElements.size() && atoi(input2.c_str()) != ZERO)
 				{
 					number2 = atoi(input2.c_str());
 					jugador.addElement(number2);
@@ -78,6 +107,9 @@ int main()
 				std::cout << "This command doesn't exist." << std::endl;
 			}
 		}
+		std::cin.clear(); // clears all error state flags
+		// extracts characters from the input buffer and discards them
+		std::cin.ignore(std::cin.rdbuf()->in_avail());
 	}
 	return 0;
 }

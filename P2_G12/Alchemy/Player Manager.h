@@ -59,4 +59,10 @@ public:
 
 	// Funció que elimina els elements repetits de la llista.
 	void cleanElements();
+
+	// Funció que obre el navegador amb informació sobre l'element seleccionat.
+	void helpElements(int n1);
+
+	// Funció que elimina un element.
+	void deleteElement(int n1);
 };

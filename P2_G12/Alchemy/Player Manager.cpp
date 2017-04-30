@@ -3,21 +3,18 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <Windows.h>
 
 // Inicialitzem el vector amb els elements bàsics, la puntuació i la variable de classe elements de Player.
 Player::Player(Elements &elements) :score{ 0 }, dispElements({ "ZERO","Air", "Earth", "Fire", "Water" }), discoveredElements({ "Air", "Earth", "Fire", "Water" }),myElements{ elements } 
 {
 	printInterficie();
-	std::cout << std::endl;
-	for(int i=FIRST_ELEMENT;i<=myElements.getNumBasics();i++)
-	{
-		std::cout << i << " :" << dispElements[i] << std::endl;
-	}
 }
 
 void Player::printInterficie()
 {
 	// Imprimim l'interfície.
+	system("cls");
 	std::cout << "--------------" << std::endl << "FULLENTI ALCHEMIST" << std::endl << "--------------" << std::endl;
 	std::cout <<
 	"- Enter two numbers of your elements list to combine them." << std::endl <<
@@ -30,6 +27,7 @@ void Player::printInterficie()
 	"- Enter the word 'help' to show this tutorial." << std::endl <<
 	"Your current score: " << score << std::endl << std::endl <<
 	"Your have these elements:" << std::endl;	
+	printElements();
 }
 
 int Player::getScore()
@@ -121,7 +119,7 @@ void Player::combination(int n1,int n2)
 	// En cas contrari...
 	else
 	{
-		std::cout << "The combination of these two elements doesn't exist." << std::endl;
+		std::cout << "The combination of these two elements doesn't exist." << std::endl << std::endl;
 	}
 	printScore();
 	printElements();
@@ -161,6 +159,22 @@ void Player::cleanElements()
 			}
 		}
 	}
+	system("cls");
+	printScore();
+	printElements();
+}
+
+void Player::helpElements(int inp)
+{
+	std::string str = "https://en.wikipedia.org/wiki/";
+	str += dispElements[inp];
+	LPSTR url = const_cast<char *>(str.c_str());
+	ShellExecuteA(nullptr, "open", url, nullptr, nullptr, SW_SHOWNORMAL);
+}
+
+void Player::deleteElement(int inp)
+{
+	dispElements.erase(dispElements.begin()+inp);
 	system("cls");
 	printScore();
 	printElements();
