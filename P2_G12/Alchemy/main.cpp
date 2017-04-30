@@ -39,9 +39,9 @@ int main()
 				// Convertim el segon nombre a enter
 				number2 = atoi(input2.c_str());
 				// Si són el mateix element...
-				if (jugador.dispElements[number1] == jugador.dispElements[number2])
+				if (number1 == number2)
 				{
-					std::cout << "You can't combine the same element!" << std::endl;
+					std::cout << "You can't combine one element!" << std::endl;
 				}
 				else
 				{

@@ -110,7 +110,7 @@ void Player::combination(int n1,int n2)
 	// En cas contrari...
 	else
 	{
-		std::cout << "The combination of these two elements doesn't exist." << std::endl << std::endl;
+		std::cout << "You can't combine this two elements." << std::endl << std::endl;
 	}
 	printScore();
 	printElements();
